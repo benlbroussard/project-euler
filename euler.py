@@ -172,7 +172,7 @@ def get_factors(n):
   #print('factors: ' + str(factors))
   return factors
 
-def permute(instr): # doesn't return the initial string as one of the permutations
+def permute(instr): # returns ordered permutations!
     #print(f'instr: {instr}')
     if len(instr) == 1: # base case
         return [instr]

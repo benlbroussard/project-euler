@@ -166,10 +166,20 @@ def get_factors(n):
     
     if n%i == 0:
       factors.append(i)
-      factors.append(n/i)
+      factors.append(int(n/i))
     
   factors.sort()
   #print('factors: ' + str(factors))
   return factors
 
-
+def permute(instr): # doesn't return the initial string as one of the permutations
+    #print(f'instr: {instr}')
+    if len(instr) == 1: # base case
+        return [instr]
+    subperms = []
+    for i in range(0,len(instr)):
+        #print(f'letter: {instr[i]}, instr: {instr}')
+        for subperm in permute(instr[:i] + instr[i+1:]):
+            #print(f'letter: {instr[i]}, subperm: {subperm}, instr: {instr}')
+            subperms.append(instr[i] + subperm)
+    return subperms
